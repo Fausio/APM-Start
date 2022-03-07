@@ -16,7 +16,8 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table">
+            <table class="table"
+                   *ngIf="producList.length">
                 <thead>
                     <tr>
                         <th>
@@ -30,7 +31,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr *ngFor='let p of producList'>
+                        <td>{{p.ImageUrl}}</td>
+                        <td>{{p.ProductName}}</td>
+                        <td>{{p.ProductCode}}</td>
+                        <td>{{p.Available}}</td>
+                        <td>{{p.Price}}</td>
+                        <td>{{p.StarRating}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
