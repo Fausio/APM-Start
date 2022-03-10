@@ -3,7 +3,8 @@ import { Iproduct } from "./product";
 
 @Component({
     selector: "mp-productList",
-    templateUrl: './products-list.component.html'
+    templateUrl: './products-list.component.html',
+    styleUrls:['./products-list.component.css']
 })
 
 export class ProductListComponent {
