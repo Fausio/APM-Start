@@ -9,7 +9,9 @@ export class ProductListComponent {
     pageTitle: string = "Product List 👽";
 
     imgWidth: number = 50;
-    imgMargin: number = 2;
+    imgMargin: number = 5; 
+    imgShow: boolean = false;
+    btnShowImg: string = "Show";
 
     producList: any[] = [
         {
@@ -38,5 +40,13 @@ export class ProductListComponent {
             "Available": false
         }
     ];
+
+
+    toggleImage(): void{
+
+        this.imgShow =  !this.imgShow; 
+        this.imgShow  ? this.btnShowImg = "Hide" : this.btnShowImg = "Show" ;
+
+    }
 
 }
