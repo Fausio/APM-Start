@@ -6,7 +6,10 @@ import { Component } from "@angular/core";
 })
 
 export class ProductListComponent {
-    pageTitle: string = "Product List 😁";
+    pageTitle: string = "Product List 👽";
+
+    imgWidth: number = 50;
+    imgMargin: number = 2;
 
     producList: any[] = [
         {
@@ -18,7 +21,7 @@ export class ProductListComponent {
             "Description": "15 gallon capacity",
             "Price": 34.5,
             "StarRating": 4.2,
-            "ImageUrl": "Assets/images/carden_cart.png",
+            "ImageUrl": "assets/images/garden_cart.png",
             "Available": true
         }
         ,
@@ -31,7 +34,7 @@ export class ProductListComponent {
             "Description": "15 gallon capacity",
             "Price": 56.5,
             "StarRating": 3.2,
-            "ImageUrl": "Assets/images/hummer.png",
+            "ImageUrl": "assets/images/hammer.png",
             "Available": false
         }
     ];

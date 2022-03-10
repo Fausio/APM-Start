@@ -32,7 +32,12 @@
                 </thead>
                 <tbody>
                     <tr *ngFor='let p of producList'>
-                        <td>{{p.ImageUrl}}</td>
+                        <td>
+                            <img [src]='p.ImageUrl'
+                                 [title]='p.ProductName'
+                                 [style.width.px]='imgWidth'
+                                 [style.Margin.px]='imgMargin'>
+                        </td>
                         <td>{{p.ProductName}}</td>
                         <td>{{p.ProductCode}}</td>
                         <td>{{p.Available}}</td>
