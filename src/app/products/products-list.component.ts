@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Iproduct } from "./product";
 
 @Component({
     selector: "mp-productList",
@@ -15,7 +16,7 @@ export class ProductListComponent {
 
     filterLabel: string = "somethingHere";
 
-    producList: any[] = [
+    producList: Iproduct[] = [
         {
 
             "ProductId": 2,

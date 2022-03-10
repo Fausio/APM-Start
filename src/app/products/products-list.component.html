@@ -40,10 +40,10 @@
                                  [style.width.px]='imgWidth'
                                  [style.Margin.px]='imgMargin' >
                         </td>
-                        <td>{{p.ProductName}}</td>
-                        <td>{{p.ProductCode}}</td>
+                        <td>{{p.ProductName |  uppercase}}</td>
+                        <td>{{p.ProductCode | lowercase}}</td>
                         <td>{{p.Available}}</td>
-                        <td>{{p.Price}}</td>
+                        <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
                         <td>{{p.StarRating}}</td>
                     </tr>
                 </tbody>
