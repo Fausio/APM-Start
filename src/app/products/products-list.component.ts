@@ -13,6 +13,8 @@ export class ProductListComponent {
     imgShow: boolean = false;
     btnShowImg: string = "Show";
 
+    filterLabel: string = "somethingHere";
+
     producList: any[] = [
         {
 
