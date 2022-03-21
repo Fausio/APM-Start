@@ -45,7 +45,7 @@
                         <td>{{p.Available}}</td>
                         <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
                         <td>
-                             <mp-star></mp-star>
+                             <mp-star [rating]='p.StarRating'></mp-star>
                         </td>
                     </tr>
                 </tbody>
