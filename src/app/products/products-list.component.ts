@@ -4,21 +4,30 @@ import { Iproduct } from "./product";
 @Component({
     selector: "mp-productList",
     templateUrl: './products-list.component.html',
-    styleUrls:['./products-list.component.css']
+    styleUrls: ['./products-list.component.css']
 })
 
-export class ProductListComponent  implements OnInit{
-   
-   
+export class ProductListComponent implements OnInit {
+
+
 
     pageTitle: string = "Product List 👽";
 
     imgWidth: number = 50;
-    imgMargin: number = 5; 
+    imgMargin: number = 5;
     imgShow: boolean = false;
     btnShowImg: string = "Show";
 
-    filterLabel: string = "somethingHere";
+    private _filterLabel: string = "";
+    get filterLabel(): string {
+
+        return this._filterLabel;
+    }
+    set filterLabel(value: string) {
+
+        this._filterLabel = value;
+        console.log("in setter:", value);
+    }
 
     producList: Iproduct[] = [
         {
@@ -49,16 +58,16 @@ export class ProductListComponent  implements OnInit{
     ];
 
 
-    toggleImage(): void{
+    toggleImage(): void {
 
-        this.imgShow =  !this.imgShow; 
-        this.imgShow  ? this.btnShowImg = "Hide" : this.btnShowImg = "Show" ;
+        this.imgShow = !this.imgShow;
+        this.imgShow ? this.btnShowImg = "Hide" : this.btnShowImg = "Show";
 
     }
- 
+
     ngOnInit(): void {
-        
-        console.log("On init");  
+
+        this.filterLabel  = "cart" ;
     }
 
 }
