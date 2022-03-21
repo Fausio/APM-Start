@@ -41,7 +41,7 @@
                                  [style.Margin.px]='imgMargin' >
                         </td>
                         <td>{{p.ProductName |  uppercase}}</td>
-                        <td>{{p.ProductCode | lowercase}}</td>
+                        <td>{{p.ProductCode | uppercase | ConvertToSpaces:'-' }}</td>
                         <td>{{p.Available}}</td>
                         <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
                         <td>{{p.StarRating}}</td>

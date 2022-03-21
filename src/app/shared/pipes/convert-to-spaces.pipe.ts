@@ -1,12 +1,16 @@
-import { PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from "@angular/core";
+import { pipe } from "rxjs";
+
+@Pipe({
+    name: 'ConvertToSpaces'
+})
+
+export class convertToSpacespipe implements PipeTransform {
 
 
-export class convertToSpacespipe implements PipeTransform{
-   
-   
-    transform(value: string, characters: string) : string {
-        
-        throw new Error("Method not implemented.");
+    transform(value: string, characters: string): string {
+
+        return  value.replace(characters, ' ');
     }
 
 }
