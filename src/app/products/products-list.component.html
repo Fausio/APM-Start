@@ -44,7 +44,9 @@
                         <td>{{p.ProductCode | uppercase | ConvertToSpaces:'-' }}</td>
                         <td>{{p.Available}}</td>
                         <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
-                        <td>{{p.StarRating}}</td>
+                        <td>
+                             <mp-star></mp-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
