@@ -1,16 +1,21 @@
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+
 import { Component, OnInit } from "@angular/core";
-import { Iproduct } from "./product";
+import { Iproduct } from "../interfaces/product/product";
+import { productService } from "../services/product/product.service";
 
 @Component({
     selector: "mp-productList",
     templateUrl: './products-list.component.html',
-    styleUrls: ['./products-list.component.css']
+    styleUrls: ['./products-list.component.css'],
+
 })
 
 export class ProductListComponent implements OnInit {
 
 
+    constructor(private providers: productService) {
+
+    }
 
     pageTitle: string = "Product List 👽";
 
@@ -34,33 +39,7 @@ export class ProductListComponent implements OnInit {
 
     producListFiltered: Iproduct[] = [];
 
-    producList: Iproduct[] = [
-        {
-
-            "ProductId": 2,
-            "ProductName": "Garden car",
-            "ProductCode": "GTN-SDW",
-            "ReleaseDate": "March 18, 2021",
-            "Description": "15 gallon capacity",
-            "Price": 34.5,
-            "StarRating": 4.2,
-            "ImageUrl": "assets/images/garden_cart.png",
-            "Available": true
-        }
-        ,
-        {
-
-            "ProductId": 4,
-            "ProductName": "Hummer",
-            "ProductCode": "SMK-KUR",
-            "ReleaseDate": "May 20, 2021",
-            "Description": "15 gallon capacity",
-            "Price": 56.5,
-            "StarRating": 3.2,
-            "ImageUrl": "assets/images/hammer.png",
-            "Available": false
-        }
-    ];
+    producList: Iproduct[] = [];
 
 
     toggleImage(): void {
@@ -71,17 +50,21 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
-        this.filterLabel  = "" ;
+        this.producList = this.providers.getProduct();
+         this.producListFiltered =  this.producList ;
     }
 
-    PerformFilter(value: string): Iproduct[]{
+    PerformFilter(value: string): Iproduct[] {
 
-        value = value.toLocaleLowerCase(); 
+        value = value.toLocaleLowerCase();
         return this.producList.filter((P: Iproduct) => P.ProductName.toLocaleLowerCase().includes(value));
     }
 
 
-    
+    OnnotifyClicked(value: string): void {
+
+        console.log(value);
+    }
+
 
 }

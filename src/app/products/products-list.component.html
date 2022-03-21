@@ -44,8 +44,8 @@
                         <td>{{p.ProductCode | uppercase | ConvertToSpaces:'-' }}</td>
                         <td>{{p.Available}}</td>
                         <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
-                        <td>
-                             <mp-star [rating]='p.StarRating'></mp-star>
+                        <td> 
+                             <mp-star [rating]='p.StarRating' (notifyClicked)='OnnotifyClicked($event)'></mp-star>
                         </td>
                     </tr>
                 </tbody>
