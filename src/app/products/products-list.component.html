@@ -32,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let p of producList'>
+                    <tr *ngFor='let p of producListFiltered'>
                         <td>
                             <img *ngIf='imgShow'
                                  [src]='p.ImageUrl'

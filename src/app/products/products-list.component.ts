@@ -1,3 +1,4 @@
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, OnInit } from "@angular/core";
 import { Iproduct } from "./product";
 
@@ -27,7 +28,11 @@ export class ProductListComponent implements OnInit {
 
         this._filterLabel = value;
         console.log("in setter:", value);
+        this.producListFiltered = this.PerformFilter(value);
     }
+
+
+    producListFiltered: Iproduct[] = [];
 
     producList: Iproduct[] = [
         {
@@ -67,7 +72,16 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.filterLabel  = "cart" ;
+        this.filterLabel  = "" ;
     }
+
+    PerformFilter(value: string): Iproduct[]{
+
+        value = value.toLocaleLowerCase(); 
+        return this.producList.filter((P: Iproduct) => P.ProductName.toLocaleLowerCase().includes(value));
+    }
+
+
+    
 
 }
