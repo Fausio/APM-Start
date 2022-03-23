@@ -1,7 +1,9 @@
 
-import { Component, OnInit } from "@angular/core";
-import { Iproduct } from "../interfaces/product/product";
-import { productService } from "../services/product/product.service";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
+import { Iproduct } from "src/app/interfaces/product/product";
+import { productService } from "src/app/services/product/product.service";
+ 
 
 @Component({
     selector: "mp-productList",
@@ -10,12 +12,13 @@ import { productService } from "../services/product/product.service";
 
 })
 
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
 
 
     constructor(private providers: productService) {
 
     }
+
 
     pageTitle: string = "Product List 👽";
 
@@ -23,6 +26,7 @@ export class ProductListComponent implements OnInit {
     imgMargin: number = 5;
     imgShow: boolean = false;
     btnShowImg: string = "Show";
+    sub!: Subscription;
 
     private _filterLabel: string = "";
     get filterLabel(): string {
@@ -40,7 +44,7 @@ export class ProductListComponent implements OnInit {
     producListFiltered: Iproduct[] = [];
 
     producList: Iproduct[] = [];
-
+    ErrorMessage: any;
 
     toggleImage(): void {
 
@@ -50,14 +54,27 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.producList = this.providers.getProduct();
-         this.producListFiltered =  this.producList ;
+
+        this.sub = this.providers.getProduct().subscribe({
+            next: products => {
+
+                this.producList = products
+                this.producListFiltered = this.producList;
+            },
+            error: err => this.ErrorMessage = err
+        });
+
+
+    }
+
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
     }
 
     PerformFilter(value: string): Iproduct[] {
 
         value = value.toLocaleLowerCase();
-        return this.producList.filter((P: Iproduct) => P.ProductName.toLocaleLowerCase().includes(value));
+        return this.producList.filter((P: Iproduct) => P.productName.toLocaleLowerCase().includes(value));
     }
 
 

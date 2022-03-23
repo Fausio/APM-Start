@@ -35,22 +35,27 @@
                     <tr *ngFor='let p of producListFiltered'>
                         <td>
                             <img *ngIf='imgShow'
-                                 [src]='p.ImageUrl'
-                                 [title]='p.ProductName'
+                                 [src]='p.imageUrl'
+                                 [title]='p.productName'
                                  [style.width.px]='imgWidth'
                                  [style.Margin.px]='imgMargin' >
                         </td>
-                        <td>{{p.ProductName |  uppercase}}</td>
-                        <td>{{p.ProductCode | uppercase | ConvertToSpaces:'-' }}</td>
-                        <td>{{p.Available}}</td>
-                        <td>{{p.Price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
+                        <td>
+                            <a [routerLink]="['/product',p.productId]">
+                                {{p.productName |  uppercase}}
+                            </a>
+                            
+                        
+                        </td>
+                        <td>{{p.productCode | uppercase | ConvertToSpaces:'-' }}</td>
+                        <td>{{p.available}}</td>
+                        <td>{{p.price | currency: 'MZN ': 'symbol':'1.1-23'}}</td>
                         <td> 
-                             <mp-star [rating]='p.StarRating' (notifyClicked)='OnnotifyClicked($event)'></mp-star>
+                             <mp-star [rating]='p.starRating' (notifyClicked)='OnnotifyClicked($event)'></mp-star>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-
+        </div> 
     </div>
 </div>

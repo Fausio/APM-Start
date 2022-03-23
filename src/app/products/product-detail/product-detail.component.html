@@ -1,0 +1,19 @@
+
+
+<div class="card border-success " >
+    <div class="card-header bg-transparent border-success"> {{pageTitle}} </div>
+    <div class="card-body text-success">
+      
+        <div *ngIF="product">
+            <h5 class="card-title">Success card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+     
+    </div>
+    <div class="card-footer bg-transparent border-success">
+        <button class="btn btn-success"  (click)="OnBack()"  >
+            <i class='fa fa-arrow-left'>  Back to Products</i>
+        </button>
+        
+    </div>
+  </div>

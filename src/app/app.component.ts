@@ -5,11 +5,14 @@ import { Component } from "@angular/core";
 
           selector:"pm-root",
           template: 
-                        `<div>
-                                <h1>{{PageTitle}}</h1>
-                                <mp-productList> </mp-productList>  
-                               
-                        </div>`
+                        `
+                        <pm-navbar></pm-navbar>
+
+                        <div class="container">
+                        <router-outlet> </router-outlet>
+                        </div>
+                       
+                        `
 
 }) 
 
