@@ -61,7 +61,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
                 this.producList = products
                 this.producListFiltered = this.producList;
             },
-            error: err => this.ErrorMessage = err
+            error: err => this.ErrorMessage = err 
         });
 
 

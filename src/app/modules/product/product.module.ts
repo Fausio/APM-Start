@@ -5,7 +5,6 @@ import { convertToSpacespipe } from 'src/app/shared/pipes/convert-to-spaces.pipe
  
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from 'src/app/guard/product/product-detail-guard/product-detail-guard';
-import { StarComponent } from 'src/app/shared/components/star/star.component';
 import { SharedModule } from '../shared/shared.module';
 
 
