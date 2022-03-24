@@ -25,8 +25,8 @@ import { SharedModule } from './modules/shared/shared.module';
         NotFoundPathComponent,
         NavbarComponent],
 
-    imports: [BrowserModule,
-        FormsModule,
+    imports: [
+        BrowserModule, 
         HttpClientModule,
         RouterModule.forRoot([
 
