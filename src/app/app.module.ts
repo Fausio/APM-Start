@@ -14,6 +14,8 @@ import { NavbarComponent } from './shared/nav-bar/navbar/navbar.component';
 import { ProductDetailGuard } from './guard/product/product-detail-guard/product-detail-guard';
 import { ProductModule } from './modules/product/product.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { TemplateDrivenComponent } from './components/template-driven/template-driven.component';
+import { ReactiveComponent } from './components/reactive/reactive.component';
 
 
 
@@ -23,7 +25,9 @@ import { SharedModule } from './modules/shared/shared.module';
         
         WelcomeComponent,
         NotFoundPathComponent,
-        NavbarComponent],
+        NavbarComponent,
+        TemplateDrivenComponent,
+        ReactiveComponent],
 
     imports: [
         BrowserModule, 
@@ -32,7 +36,9 @@ import { SharedModule } from './modules/shared/shared.module';
 
             { path: '', redirectTo: 'welcome', pathMatch: 'full' },
             { path: 'welcome', component: WelcomeComponent },
-           
+            { path: 'driven', component: TemplateDrivenComponent },
+            { path: 'reactive', component: ReactiveComponent },
+         
             { path: '**', component: NotFoundPathComponent }
         ]),
         ProductModule,
